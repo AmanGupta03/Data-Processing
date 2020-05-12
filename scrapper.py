@@ -32,6 +32,26 @@ SUFFICIENT = 50  #Minimum words require to avoid dynamic content scrapping
 MINIMUM = 10 #Minimum content required
 
 
+def get_status_code(url, default=0):
+  """ return status code of url and 0 in case of exception """
+  try:
+    with Timeout(10):
+      res = requests.get(url, headers=headers, verify=False, timeout=3, stream=False)
+      return res.status_code
+  except:
+    return default
+  return default
+
+
+def get_valid_url(url):
+  """ return url with valid protocol and status_code """
+
+  if(get_status_code('https://'+url) == 200):
+    return {'url':'https://'+url, 'status':200}
+  else:
+    return {'url': 'http://'+url, 'status': get_status_code('http://'+url)}
+
+
 def tag_visible(element):
   """ check visible tag """
 
@@ -73,6 +93,8 @@ def get_static_text_content(url):
     with Timeout(30):
       res = requests.get(url, headers=headers, verify=False, timeout=10)
       content.extend(processdata.preprocess(text_from_html(res.text)))
+      if len(content) == 1 and content[0] == -1: return content  #for non english sites
+
       abt_url = get_about_url(res.text, url)
 
       if abt_url != None:
@@ -92,6 +114,7 @@ def get_dynamic_text_content(url):
   try:
     browser.get(url)
     content.extend(processdata.preprocess(text_from_html(browser.page_source)))
+    if len(content) == 1 and content[0] == -1: return content #for non english sites
     abt_url = get_about_url(browser.page_source, url)
    
     if abt_url != None:
@@ -106,8 +129,12 @@ def get_scrapped_text(url, dynamic):
   """ scrap text content from url """
 
   content = get_static_text_content(url) 
-  if (len(content) < SUFFICIENT and dynamic): content = get_dynamic_text_content(url)
-  return content 
+  if len(content) == 1 and content[0] == -1: return [] #for non english sites
+  dy_content = []
+  if (len(content) < SUFFICIENT and dynamic): dy_content = get_dynamic_text_content(url)
+  if len(dy_content) == 1 and content[0] == -1: return [] #for non english sites
+  if len(content) > len(dy_content): return content
+  else: return dy_content 
 
 
 def get_url_and_content(url, dynamic=True):

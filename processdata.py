@@ -103,18 +103,40 @@ def is_significant(word):
   return True
 
 
+def is_english_word(word):
+  """ check whether word has all english alphabets """
+
+  for ch in word:
+    if ch < 'a' or ch > 'z':
+      return False
+  return True
+
+
+def is_english(content):
+  """ return True if more than 50% words are english """
+  
+  cnt = 0
+  for word in content:
+    if is_english_word(word): cnt += 1
+  
+  if cnt*2 >= len(content): return True
+  else: return False
+
+
 def preprocess(content):
   """  params -: raw text scrapped from website
-       return -: return list of words after:    
+       return -: list of words after:    
                 1) tokenization
                 2) remove stopwords and some insignificant words
                 3) convert in lowercase 
                 4) lemmatize 
                 5) Remove common web terms """
-  
+
   content = tokenize(content, deacc=True)
   content = list(filter(is_significant, content))
   content = [token.lower() for token in content]
+  MIN_WORDS = 30  #minimum words needed to decide whether site is english or not
+  if len(content) > MIN_WORDS and not is_english(content): return [-1]   #signal for non_engish site 
   content = [lemmatize(token) for token in content if token not in STOPWORDS and token in dictionary]
   content = [token for token in content if token not in AVOID]
   return content
