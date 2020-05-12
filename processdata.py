@@ -8,14 +8,17 @@ import pandas as pd
 import numpy as np
 
 #Dictionary
+print('loading dictionary...')
 df = pd.read_csv('dictionary.csv')
 dictionary = set([row[0] for row in df.values.tolist()])
 
 #Lemmatization
+print('loading words lemma...')
 df = pd.read_csv('lemmatization.csv')
 lemma = {row[0]:row[1] for row in df.values.tolist()}
 
 #Embedding
+print('loading embeddings...')
 df = pd.read_csv('embeddings.zip')
 str_to_numpy_array = lambda string: np.array(string.split()).astype(np.float)  #convert space seprated string to numpy array of floats
 embd = {row[0]:str_to_numpy_array(row[1]) for row in df.values.tolist()}
