@@ -113,13 +113,13 @@ def get_dynamic_text_content(url):
   content = []
   try:
     browser.get(url)
-    content.extend(preprocess(text_from_html(browser.page_source)))
+    content.extend(processdata.preprocess(text_from_html(browser.page_source)))
     if len(content) > 0 and content[0] == "invalidcontentfound": return content
     abt_url = get_about_url(browser.page_source, url)
    
     if abt_url != None:
       browser.get(abt_url)
-      content.extend(preprocess(text_from_html(browser.page_source)))
+      content.extend(processdata.preprocess(text_from_html(browser.page_source)))
     return content
   except:
     return content
