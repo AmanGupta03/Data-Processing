@@ -93,7 +93,7 @@ def get_static_text_content(url):
     with Timeout(30):
       res = requests.get(url, headers=headers, verify=False, timeout=10)
       content.extend(processdata.preprocess(text_from_html(res.text)))
-      if len(content) == 1 and content[0] == -1: return content  #for non english sites
+      if len(content) > 0 and content[0] == "invalidcontentfound": return content
 
       abt_url = get_about_url(res.text, url)
 
@@ -129,12 +129,12 @@ def get_scrapped_text(url, dynamic):
   """ scrap text content from url """
 
   content = get_static_text_content(url) 
-  if len(content) == 1 and content[0] == -1: return [] #for non english sites
+  if len(content) > 0 and content[0] == "invalidcontentfound": return []
   dy_content = []
   if (len(content) < SUFFICIENT and dynamic): dy_content = get_dynamic_text_content(url)
-  if len(dy_content) == 1 and content[0] == -1: return [] #for non english sites
-  if len(content) > len(dy_content): return content
-  else: return dy_content 
+  if len(dy_content) > 0 and dy_content[0] == "invalidcontentfound": dy_content =  []
+  if len(content) >= len(dy_content): return content
+  else: return dy_content
 
 
 def get_url_and_content(url, dynamic=True):
@@ -160,8 +160,12 @@ def get_text_content(url, dynamic=True):
                 Note it will find suitable protocol b/w http and https automatically if doesn't include in url
                 dynamic -: boolean variable to decide whether to scrap dynamic content or not
 
-                return -: string consist text content from url or raise exception when either url is invalid/inactive
-                          or failed to scrap significant amount of content """  
+                return -: string consist text content from url 
+                          or 
+                          raise exception when _i) either url is invalid/inactive
+                                                ii) site doen't hav english content
+                                                iii) failed to scrap significant amount of content 
+                                                iv) sites take too long to respond """  
 
 
   content =  get_url_and_content(url, dynamic)['content']
@@ -185,15 +189,20 @@ def get_all_info(url, dynamic=False):
   """ Note -: keep dynamic = False, during multiprocessing 
       return url, compressed_content, embedding and status
       use only in mass scrapping"""
-    
-  url_cont = get_url_and_content(url, dynamic)
+  default = {'status': 'failed'}
+  try:
+    with Timeout(35):
+      url_cont = get_url_and_content(url, dynamic)
 
-  if len(url_cont['content'].split()) < SUFFICIENT: 
-    return {'url': url_cont['url'], 'content':'', 'embedding':'', 'status':'failed'}
-  else:
-    return {
+      if len(url_cont['content'].split()) < SUFFICIENT: 
+        return default
+      else:
+        return {
             'url': url_cont['url'], 
             'content': processdata.compress_sentence(url_cont['content']), 
             'embedding': processdata.stringify_sent_embedding(url_cont['content']), 
             'status':'success'
             }
+  except:
+      return default
+  return default

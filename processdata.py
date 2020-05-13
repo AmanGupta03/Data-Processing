@@ -125,7 +125,7 @@ def is_english(content):
 
 def preprocess(content):
   """  params -: raw text scrapped from website
-       return -: list of words after:    
+       return -: return list of words after:    
                 1) tokenization
                 2) remove stopwords and some insignificant words
                 3) convert in lowercase 
@@ -136,7 +136,7 @@ def preprocess(content):
   content = list(filter(is_significant, content))
   content = [token.lower() for token in content]
   MIN_WORDS = 30  #minimum words needed to decide whether site is english or not
-  if len(content) > MIN_WORDS and not is_english(content): return [-1]   #signal for non_engish site 
+  if len(content) > MIN_WORDS and not is_english(content): return ['invalidcontentfound']   #signal for non_engish site 
   content = [lemmatize(token) for token in content if token not in STOPWORDS and token in dictionary]
   content = [token for token in content if token not in AVOID]
   return content
