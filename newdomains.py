@@ -133,15 +133,62 @@ def get_adjusted_ranks(cur_date, data, urls):
   return ranks
 
 
-def update_visited_domains(all_url, new_url, date, duration=30):
+def delete_visited_domain(cur_date, duration=30):
+  """ delete all entries in visited_domains table that are 30days old """
+  expired = str(cur_date-timedelta(days=duration))
+  try:
+    conn = sqlite3.connect("web.db") 
+    cur = conn.cursor()
+    cur.execute("DELETE FROM visited_domains WHERE status=1 and date = ?", (expired,))
+    conn.commit()
+  except sqlite3.Error as error:
+    print(error)
+  finally:
+    if (conn): conn.close()
+
+
+def add_new_visited_domains(new_url, cur_date):
+  """ Add new entries in visited_domains table, that found at cur_date """
+
+  row = [[url, str(cur_date), 1] for url in new_url]
+  df = pd.DataFrame(row, columns=['url', 'date', 'status'])
+  df.set_index('url', inplace=True)
+
+  try:
+    conn = sqlite3.connect("web.db") 
+    df.to_sql('visited_domains', conn, if_exists='append', index=True)
+    conn.commit()
+  except sqlite3.Error as error:
+    print("Error while adding new records in visited_domains", error)
+  finally:
+    if (conn): conn.close()
+  
+
+def update_visited_domains_date(urls, cur_date):
+  """ update date column in visited_domains table """
+  
+  try:
+    conn = sqlite3.connect("web.db") 
+    cur = conn.cursor()
+
+    for url in tqdm(urls):
+      cur.execute('UPDATE visited_domains SET date=? WHERE url=?', (cur_date, url))
+    conn.commit()
+  
+  except sqlite3.Error as error:
+    print(error)
+  
+  finally:
+    if (conn): conn.close()
+  
+
+
+def update_visited_domains(all_url, new_url, cur_date, duration=30):
   """ Add all url seen at cur_date and delete url that doesn't encounter in last x days """
-  all_url = list(all_url)
-
-  #add_new_url
-  #remove_active_url_with_date_30_days_previous_to_cur_date
-  #change_date_of_all_url_to_cuurent_date
-
-  pass
+  
+  delete_visited_domain(cur_date, duration)
+  add_new_visited_domains(new_url, cur_date)
+  update_visited_domains_date(all_url, str(cur_date))
 
 
 def data_to_append(data, cur_date):
@@ -163,7 +210,7 @@ def data_to_append(data, cur_date):
   df = pd.DataFrame(data, columns=columns)
   df.set_index('url', inplace=True)
   
-  return df;
+  return df
 
 
 def fast_scrap(urls, workers=50):
