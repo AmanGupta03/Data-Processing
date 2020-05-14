@@ -23,7 +23,7 @@ url_to_scrap = newdomains.get_url_to_scrap(valid_urls)
 print('\n',len(url_to_scrap), 'new domains found')
 
 print('Finding active urls...')
-new_active_urls = newdomains.get_active_urls(url_to_scrap[:20]) #slice list while testing...approximately perform 10-30 it/s 
+new_active_urls = newdomains.get_active_urls(url_to_scrap) #slice list while testing...approximately perform 10-30 it/s 
 print('\n',len(new_active_urls), 'new active domains found')
 
 print('\nScrapping urls...')
@@ -42,8 +42,8 @@ data = newdomains.data_to_append(data, cur_date)
 
 print('performing initial updates on global_data.....')
 
-#deleted_records = globaldata.delete_records(cur_date, duration=30) 
-#globaldata.add_new_records(data) 
+deleted_records = globaldata.delete_records(cur_date, duration=30) 
+globaldata.add_new_records(data) 
 
 
 
@@ -72,9 +72,9 @@ Replace these dummy function calls with actual one in trends.py......
 
 print('update rank,  date and cluster in global_data.....')
 
-#globaldata.update_rank(list(ranks.items()))
-#globaldata.update_cluster(clusters)
-#globaldata.update_date(list(ranks.keys()), str(cur_date))
+globaldata.update_rank(list(ranks.items()))
+globaldata.update_cluster(clusters)
+globaldata.update_date(list(ranks.keys()), str(cur_date))
 
 
 print('update visited domains...')
