@@ -1,0 +1,1 @@
+""" function to update trends.db """
