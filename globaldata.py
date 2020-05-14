@@ -8,6 +8,7 @@ def add_new_records(data):
   try:
     conn = sqlite3.connect("web.db") 
     data.to_sql('global_data', conn, if_exists='append', index=True)
+    conn.commit()
     print("Successfully added new records")
   except sqlite3.Error as error:
     print("Error while adding new records in global_data ", error)
