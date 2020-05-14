@@ -1,4 +1,4 @@
-""" Script to create initial database """"
+""" Script to create initial database """
 
 from tqdm import tqdm
 import pandas as pd
@@ -50,5 +50,5 @@ def build_visited_domains(dataset):
   conn.close()
 
 
-build_global_data(clusters=clusters, dataset=DATASET_URL)
+#build_global_data(clusters=clusters, dataset=DATASET_URL)
 build_visited_domains(dataset=VISITED_DOMAINS_URL)
