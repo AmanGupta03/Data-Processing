@@ -2,7 +2,7 @@ from keywords import get_all_keywords
 from sklearn import cluster, metrics
 from collections import defaultdict
 from insert import insertData
-from settings import kmeans_PATH
+from settings import KMEANS_PATH
 import globaldata
 import pickle
 
@@ -16,7 +16,7 @@ def store_object(obj,filename):
   with open(filename,'wb') as obj_file:
     pickle.dump(obj,obj_file)
 
-kmeans=load_obj('kmeans')
+kmeans=load_obj(KMEANS_PATH)
 
 
 
@@ -58,3 +58,5 @@ def update_trends(urls, X, date):
   
   keywords_insert=get_all_keywords(centroids)
   insertData(keywords_insert,'KEYWORDS',date)
+  
+  store_object(kmeans,KMEANS_PATH)
