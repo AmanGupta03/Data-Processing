@@ -58,4 +58,5 @@ def update_trends(urls, X, date):
   
   keywords_insert=get_all_keywords(centroids)
   insertData(keywords_insert,'KEYWORDS',date)
+  
   store_object(kmeans,KMEANS_PATH)
