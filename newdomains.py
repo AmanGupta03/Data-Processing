@@ -2,6 +2,7 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from scrapper import get_valid_url, get_all_info
 from datetime import date, timedelta
 from tldextract import extract
+from settings import DB_PATH
 from tqdm import tqdm
 import pandas as pd
 import numpy as np

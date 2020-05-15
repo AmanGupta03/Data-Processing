@@ -1,6 +1,7 @@
 """ consist functions to update and fetch data from global_data table """
 
 from datetime import date, timedelta
+from settings import DB_PATH
 from tqdm import tqdm
 import sqlite3
 

@@ -1,3 +1,4 @@
+from settings import DB_PATH
 import sqlite3 
 
 def insertData(data,tableName,scriptDate): 

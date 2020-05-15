@@ -3,8 +3,6 @@
     Note-: cisco ranklist lags by 1 day 
 """
 
-DB_PATH = 'web.db'  #Database Path
-
 from datetime import date, timedelta
 from time import sleep
 import sys
