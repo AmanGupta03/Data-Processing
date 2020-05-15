@@ -38,7 +38,7 @@ def get_visited_domains():
   """ return set of visited domains fetched from database """
 
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     cur.execute('SELECT url From visited_domains')
     return set([extract(data[0]).domain for data in cur.fetchall()])
@@ -52,7 +52,7 @@ def get_all_fetched_domains(cur_date):
   """ return set of all domains that are also in global_data """
   expired = str(cur_date-timedelta(days=30))
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     cur.execute('SELECT url From visited_domains WHERE status = 1 AND date != ?', (expired,))
     return [data[0] for data in cur.fetchall()]
@@ -137,7 +137,7 @@ def delete_visited_domain(cur_date, duration=30):
   """ delete all entries in visited_domains table that are 30days old """
   expired = str(cur_date-timedelta(days=duration))
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     cur.execute("DELETE FROM visited_domains WHERE status=1 and date = ?", (expired,))
     conn.commit()
@@ -155,7 +155,7 @@ def add_new_visited_domains(new_url, cur_date):
   df.set_index('url', inplace=True)
 
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     df.to_sql('visited_domains', conn, if_exists='append', index=True)
     conn.commit()
   except sqlite3.Error as error:
@@ -168,7 +168,7 @@ def update_visited_domains_date(urls, cur_date):
   """ update date column in visited_domains table """
   
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
 
     for url in tqdm(urls):

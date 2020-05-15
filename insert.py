@@ -2,7 +2,7 @@ import sqlite3
 
 def insertData(data,tableName,scriptDate): 
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     dataStr = dictToStr(data)
     colStr=getColStr()

@@ -3,13 +3,28 @@
     Note-: cisco ranklist lags by 1 day 
 """
 
+DB_PATH = 'web.db'  #Database Path
+
 from datetime import date, timedelta
+from time import sleep
+import sys
+
+behind = 1 #no-of days global data lags with current date... change according to date of running
+
+if len(sys.argv) > 1: behind = int(sys.argv[1])
+cur_date = date.today() - timedelta(days=behind) 
+print('ALERT -:')
+
+print('This will update db using cisco-ranklist at', cur_date, 
+       "Terminate process if previous updates are pending,  and run py passing corrsponding value"
+       "'behind' as command-line arguments")
+
+sleep(2)
+
 import newdomains
 import globaldata
 import trends
 
-behind = 8  #no-of days global data lags with current date... change according to date of running
-cur_date = date.today() - timedelta(days=behind) 
 
 print('Fetching cisco ranklist...')
 urls = newdomains.fetch_ranklist(cur_date)

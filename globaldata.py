@@ -8,7 +8,7 @@ def add_new_records(data):
   """ Append new records in global_data """
   
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     data.to_sql('global_data', conn, if_exists='append', index=True)
     conn.commit()
     print("Successfully added new records")
@@ -24,7 +24,7 @@ def delete_records(cur_date, duration=30):
   expired = str(cur_date-timedelta(days=duration))
 
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     cur.execute("SELECT url, cluster FROM global_data WHERE date = ?", (expired,))
     rows = cur.fetchall()
@@ -47,7 +47,7 @@ def update_rank(ranks):
     if i != 29: query += ", "
 
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     cur.execute(query)
     cur.execute('UPDATE global_data SET rank_d30=NULL')
@@ -67,7 +67,7 @@ def update_cluster(clusters):
   """ update cluster no of new_domains in global_data """
 
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     
     for row in tqdm(clusters):
@@ -87,7 +87,7 @@ def update_date(urls, cur_date):
   """ update date of all domains global_data"""
 
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     
     for url in tqdm(urls):
@@ -106,7 +106,7 @@ def update_date(urls, cur_date):
 def get_rank_cluster():
   """ return cluster and rank of all urls in global_data """
   try:
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     cur.execute("SELECT cluster,rank_d30 FROM global_data")
     return cur.fetchall();
@@ -121,7 +121,7 @@ def get_rank_cluster():
 def get_keyword_dict(url):
     """ return dictionary of keywords of url """
     try:
-      conn = sqlite3.connect("web.db") 
+      conn = sqlite3.connect(DB_PATH) 
       cur = conn.cursor()
       cursor = cur.execute('SELECT content from global_data where url=?', (url,))
       
@@ -150,7 +150,7 @@ def get_all_vectors(cluster=None):
 
   try:
     
-    conn = sqlite3.connect("web.db") 
+    conn = sqlite3.connect(DB_PATH) 
     cur = conn.cursor()
     cursor = cur.execute(query)
 
