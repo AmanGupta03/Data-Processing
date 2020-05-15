@@ -1,9 +1,20 @@
+import sqlite3 
+
 def insertData(data,tableName,scriptDate): 
-  dataStr = dictToStr(data)
-  colStr=getColStr()
-  cur.execute("INSERT INTO "+str(tableName)+"("+colStr+")\
-   VALUES ('"+scriptDate+"',"+dataStr+")")
-  conn.commit()
+  try:
+    conn = sqlite3.connect("web.db") 
+    cur = conn.cursor()
+    dataStr = dictToStr(data)
+    colStr=getColStr()
+    cur.execute("INSERT INTO "+str(tableName)+"("+colStr+")\
+    VALUES ('"+scriptDate+"',"+dataStr+")")
+    conn.commit()
+  
+  except sqlite3.Error as error:
+      print(error)
+    
+  finally:
+    if (conn): conn.close()
 
 
 def getColStr():

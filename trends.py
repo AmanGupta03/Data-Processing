@@ -2,7 +2,6 @@ from keywords import get_all_keywords
 from sklearn import cluster, metrics
 from collections import defaultdict
 from insert import insertData
-import sqlite3
 import globaldata
 import pickle
 
@@ -43,9 +42,6 @@ def getRankSizeData():
 
 
 def update_trends(urls, X, date):
-  
-  conn = sqlite3.connect("web.db")
-  cur = conn.cursor()
 
   cluster_no = []
 
@@ -61,5 +57,3 @@ def update_trends(urls, X, date):
   
   keywords_insert=get_all_keywords(centroids)
   insertData(keywords_insert,'KEYWORDS',date)
-  conn.commit()
-  conn.close()

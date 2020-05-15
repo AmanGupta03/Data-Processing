@@ -1,6 +1,7 @@
 """ consist functions to update and fetch data from global_data table """
 
 from datetime import date, timedelta
+from tqdm import tqdm
 import sqlite3
 
 def add_new_records(data):
@@ -115,6 +116,24 @@ def get_rank_cluster():
 
   finally:
     if (conn): conn.close()
+
+
+def get_keyword_dict(url):
+    """ return dictionary of keywords of url """
+    try:
+      conn = sqlite3.connect("web.db") 
+      cur = conn.cursor()
+      cursor = cur.execute('SELECT content from global_data where url=?', (url,))
+      
+      for row in cursor:
+        new_dict = { w.split(':')[0] : int(w.split(':')[1]) for w in row[0].split()}
+      return new_dict
+
+    except sqlite3.Error as error:
+      print(error)
+    
+    finally:
+      if (conn): conn.close()
 
 
 def get_all_vectors(cluster=None):

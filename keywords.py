@@ -1,5 +1,5 @@
 from sklearn.neighbors import NearestNeighbors
-from globaldata import get_all_vectors 
+from globaldata import get_all_vectors, get_keyword_dict
 from collections import OrderedDict
 
 def get_all_keywords(centroids):
@@ -20,16 +20,11 @@ def get_all_keywords(centroids):
     index_list = neigh.kneighbors([centroids[i]], num_of_neigh, return_distance=False)
     
     for indexes in index_list[0]:
-      word_dict=getKeywordDict(url_list[indexes])
+      word_dict=get_keyword_dict(url_list[indexes])
       tocommondict(word_dict,common_dict)
     final_dict[i]=final_words(common_dict)
   return final_dict
 
-def getKeywordDict(url):
-    cursor = cur.execute("SELECT content from global_data where url='"+str(url)+"'")
-    for row in cursor:
-      new_dict = { w.split(':')[0] : int(w.split(':')[1]) for w in row[0].split()}
-    return new_dict
 
 def tocommondict(word_dict,common_dict):
   for key in word_dict:
@@ -37,6 +32,7 @@ def tocommondict(word_dict,common_dict):
       common_dict[key]=word_dict[key]
     else:
       common_dict[key]+=word_dict[key]
+
 
 def final_words(common_dict):
   cluster_keywords={k: v for k, v in sorted(common_dict.items(), key=lambda item: item[1],reverse=True)}
