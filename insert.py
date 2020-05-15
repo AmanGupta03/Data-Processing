@@ -8,7 +8,7 @@ def insertData(data,tableName,scriptDate):
     dataStr = dictToStr(data)
     colStr=getColStr()
     cur.execute("INSERT INTO "+str(tableName)+"("+colStr+")\
-    VALUES ('"+scriptDate+"',"+dataStr+")")
+     VALUES ('"+scriptDate+"',"+dataStr+")")
     conn.commit()
   
   except sqlite3.Error as error:
