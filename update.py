@@ -50,7 +50,7 @@ new_scrapped_url = [row['url'] for row in data]
 embedding = [[float(x) for x in row['embedding'].split()] for row in data] #embeddings as list of list, ordered according to new_scrapped url
 
 #get pandas dataframe indexed on url to append on global_data
-data = newdomains.data_to_append(data, cur_date) 
+data = newdomains.data_to_append(data, str(cur_date)) 
 
 
 print('performing updates on global_data.....')
