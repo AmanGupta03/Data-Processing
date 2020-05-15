@@ -2,6 +2,7 @@ from keywords import get_all_keywords
 from sklearn import cluster, metrics
 from collections import defaultdict
 from insert import insertData
+from settings import kmeans_PATH
 import globaldata
 import pickle
 
