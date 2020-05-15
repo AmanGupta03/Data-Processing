@@ -52,11 +52,15 @@ def update_trends(urls, X, date):
   
   globaldata.update_cluster(list(zip(urls, cluster_no)))
   
+  print('Updating SIZE...')
   rankSizelist = getRankSizeData()
   insertData(rankSizelist[0],'SIZE',date)
+  print('Updating RANK...')
   insertData(rankSizelist[1],'RANK',date)
   
   keywords_insert=get_all_keywords(centroids)
+  print('Updating KEYWORDS...')
   insertData(keywords_insert,'KEYWORDS',date)
   
   store_object(kmeans,KMEANS_PATH)
+  print('Trends Updated')
