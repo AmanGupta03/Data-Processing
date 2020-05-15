@@ -8,7 +8,7 @@ import newdomains
 import globaldata
 import trends
 
-behind = 7  #no-of days global data lags with current date... change according to date of running
+behind = 8  #no-of days global data lags with current date... change according to date of running
 cur_date = date.today() - timedelta(days=behind) 
 
 print('Fetching cisco ranklist...')
@@ -40,44 +40,17 @@ embedding = [[float(x) for x in row['embedding'].split()] for row in data] #embe
 data = newdomains.data_to_append(data, cur_date) 
 
 
-print('performing initial updates on global_data.....')
+print('performing updates on global_data.....')
 
 deleted_records = globaldata.delete_records(cur_date, duration=30) 
 globaldata.add_new_records(data) 
-
-
-
-print('updating trends.db......')
-
-"""
-
-IMP-:
-*new_scrapped_url - list of all newl url:
-*embedding -: exactly same as X, consist list of 50 dimensional embeddding of new_scrapped_url in floats
-*ranks -: ranks of all url in global_data as dictionary
-*deleted_records -: consist 'url', 'cluster' as list of tuples of all the deleted entries
-*Rank of all deleted entries are obviously 'None'
-
-Replace these dummy function calls with actual one in trends.py......
-
-**it should return list of tuple consist 'url', 'cluster'...That's needed to update global_data
--> clusters = trends.refine_clustering(new_scrapped_url, embedding)
-
--> trends.update_cluster_ranks(ranks)
-
--> trends.update_top_keywords()
-
-"""
-
-
-print('update rank,  date and cluster in global_data.....')
-
 globaldata.update_rank(list(ranks.items()))
-globaldata.update_cluster(clusters)
 globaldata.update_date(list(ranks.keys()), str(cur_date))
 
+print('updating trends.......')
+trends.update_trends(new_scrapped_url, embedding, date)
 
-print('update visited domains...')
+print('updating visited domains...')
 newdomains.update_visited_domains(list(ranks.keys()), new_scrapped_url, cur_date)
 
 print('SUCCESS')

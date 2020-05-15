@@ -81,6 +81,7 @@ def update_cluster(clusters):
     if (conn): conn.close()
 
 
+
 def update_date(urls, cur_date):
   """ update date of all domains global_data"""
 
@@ -96,5 +97,54 @@ def update_date(urls, cur_date):
 
   except sqlite3.Error as error:
     print(error)
+  finally:
+    if (conn): conn.close()
+
+
+
+def get_rank_cluster():
+  """ return cluster and rank of all urls in global_data """
+  try:
+    conn = sqlite3.connect("web.db") 
+    cur = conn.cursor()
+    cur.execute("SELECT cluster,rank_d30 FROM global_data")
+    return cur.fetchall();
+
+  except sqlite3.Error as error:
+    print(error)
+
+  finally:
+    if (conn): conn.close()
+
+
+def get_all_vectors(cluster=None):
+  """ return  dictionary consist list of urls, and embeddings of given cluster, 
+      in case of None it return vectors of all cluster """
+
+  query = "SELECT url, "
+  for i in range(50):
+    query += 'emb_d' + str(i)
+    if(i != 49): query += ', '
+  query += ' FROM global_data '
+
+  if(cluster is not None): query += 'WHERE cluster='+str(cluster)
+
+  try:
+    
+    conn = sqlite3.connect("web.db") 
+    cur = conn.cursor()
+    cursor = cur.execute(query)
+
+    urls, embedding = [], []
+    
+    for row in cursor:
+      urls.append(row[0])
+      embedding.append(row[1:])
+    
+    return dict({'embedding':embedding,'urls':urls})
+
+  except sqlite3.Error as error:
+    print(error)
+
   finally:
     if (conn): conn.close()

@@ -49,7 +49,7 @@ def get_visited_domains():
 
 
 def get_all_fetched_domains(cur_date):
-  """ return set of all domains that are also in global_data table """
+  """ return set of all domains that are also in global_data """
   expired = str(cur_date-timedelta(days=30))
   try:
     conn = sqlite3.connect("web.db") 
@@ -102,7 +102,7 @@ def get_active_urls(urls, workers=50):
 
 
 def get_adjusted_ranks(cur_date, data, urls):
-  """ return current_day ranklist of all urls in global_data """
+  """ return current_day ranklist of all urls in data """
 
   all_fetched_urls = set(get_all_fetched_domains(cur_date))
 
@@ -194,15 +194,21 @@ def update_visited_domains(all_url, new_url, cur_date, duration=30):
 def data_to_append(data, cur_date):
   """ return data in a format to append on database """
   
-  data = [[row['url'], str(cur_date), row['content'], row['embedding']] for row in data]
+  for i in tqdm(range(len(data))):
+    row = data[i]
+    temp = [row['url'], str(cur_date), row['content']]
+    temp.extend([float(x) for x in row['embedding'].split()])
+    data[i] = temp
   
   default = [np.nan for i in range(31)]
   
   for row in data:
     row.extend(default)
 
+
   #getting column names
-  columns = ['url', 'date', 'content', 'embedding']
+  columns = ['url', 'date', 'content']
+  columns.extend(['emb_d'+str(i) for i in range(50)])
   columns.extend(['rank_d'+str(i+1) for i in range(30)])
   columns.append('cluster')
 

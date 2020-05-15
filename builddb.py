@@ -13,15 +13,24 @@ clusters = '???'
 
 
 def build_global_data(clusters, dataset):
-  """ create initial global_data table """
+  """ build initial global_data table """
 
   data = pd.read_csv(dataset)
   data = data.values.tolist()
 
-  for row in data:
-    row.append(np.nan)
+  temp = []
+  
+  for row in tqdm(data):
+    cur = []
+    cur.extend(row[:3])
+    cur.extend([float(x) for x in row[3].split()])
+    cur.extend(row[4:])
+    cur.append(np.nan)
+    temp.append(cur)  
+  data = temp
 
-  columns = ['url', 'date', 'content', 'embedding']
+  columns = ['url', 'date', 'content']
+  columns.extend(['emb_d'+str(i) for i in range(50)])
   columns.extend(['rank_d'+str(i+1) for i in range(30)])
   columns.append('cluster')
 
@@ -39,7 +48,6 @@ def build_global_data(clusters, dataset):
 
   conn.commit()
   conn.close()
-
 
 def build_visited_domains(dataset):
   """ create initial visited domain table """
