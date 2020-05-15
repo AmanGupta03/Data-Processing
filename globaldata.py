@@ -72,7 +72,7 @@ def update_cluster(clusters):
     cur = conn.cursor()
     
     for row in tqdm(clusters):
-      cur.execute('UPDATE global_data SET cluster=? WHERE url=?', (row[1], str(row[0])))
+      cur.execute('UPDATE global_data SET cluster=? WHERE url=?', (str(row[1]), row[0]))
 
     conn.commit()
     print("Successfully update cluster no.")
