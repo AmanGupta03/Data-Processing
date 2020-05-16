@@ -1,5 +1,13 @@
 # Data-Processing
 
+## installing dependencies
+```python
+pip3 install virtualenv
+virtualenv env
+pip3 install -r requirements
+```
+
+
 Chromium driver needed to scrap dynamic pages
 
 ## Run this commands to install chromium driver
