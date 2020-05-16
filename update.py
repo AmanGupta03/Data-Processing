@@ -36,11 +36,11 @@ url_to_scrap = newdomains.get_url_to_scrap(valid_urls)
 print('\n',len(url_to_scrap), 'new domains found')
 
 print('Finding active urls...')
-new_active_urls = newdomains.get_active_urls(url_to_scrap) #slice list while testing...approximately perform 10-30 it/s 
+new_active_urls = newdomains.get_active_urls(url_to_scrap[:200]) #slice list while testing...approximately perform 10-30 it/s 
 print('\n',len(new_active_urls), 'new active domains found')
 
 print('\nScrapping urls...')
-data = newdomains.fast_scrap_limited(new_active_urls, cur_date) #approximately perform 5-10 it/s...
+data = newdomains.fast_scrap_limited(new_active_urls, cur_date, limit=1) #approximately perform 5-10 it/s...
 print('\n',len(data), 'new domains scrapped')
 
 print('\nAdjusting ranks...')
