@@ -163,7 +163,7 @@ def get_text_content(url, dynamic=True):
                 return -: string consist text content from url 
                           or 
                           raise exception when _i) either url is invalid/inactive
-                                                ii) site doen't hav english content
+                                                ii) site doen't have english content
                                                 iii) failed to scrap significant amount of content 
                                                 iv) sites take too long to respond """  
 
