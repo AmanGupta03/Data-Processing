@@ -1,8 +1,8 @@
 # Data-Processing
 
-chromium driver needed to scrap dynamic pages
+Chromium driver needed to scrap dynamic pages
 
-#Run this commands to install chromium driver
+## Run this commands to install chromium driver
 ```bash
 apt-get update
 ```
