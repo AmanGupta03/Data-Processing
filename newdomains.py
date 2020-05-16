@@ -88,7 +88,7 @@ def get_url_to_scrap(urls):
   return url_to_scrap
 
 
-def get_active_urls(urls, workers=5):
+def get_active_urls(urls, workers=50):
   """ i) remove all url that doesn't respond or inactive, 
       ii) Add valid protocol to active urls """
 
@@ -220,7 +220,7 @@ def data_to_append(data, cur_date):
   return df
 
 
-def fast_scrap(urls, workers=5):
+def fast_scrap(urls, workers=50):
   """ Avoid dynamic content scrapping as webdriver cannot handle multiprocessing """
 
   with ProcessPoolExecutor(max_workers=workers) as executor:
