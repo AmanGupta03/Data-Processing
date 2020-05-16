@@ -61,7 +61,7 @@ globaldata.update_rank(list(ranks.items()))
 globaldata.update_date(list(ranks.keys()), str(cur_date))
 
 print('updating trends.......')
-trends.update_trends(new_scrapped_url, embedding, cur_date)
+trends.update_trends(new_scrapped_url, embedding, str(cur_date))
 
 print('updating visited domains...')
 newdomains.update_visited_domains(list(ranks.keys()), new_scrapped_url, cur_date)
