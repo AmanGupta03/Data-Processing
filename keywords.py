@@ -4,7 +4,7 @@ from collections import OrderedDict
 from tqdm import tqdm
 def get_all_keywords(centroids):
   final_dict={}
-  Print("Finding all keywords ...")
+  print("Finding all keywords ...")
   for i in tqdm(range(100)):
     num_of_neigh=10
     common_dict={}
