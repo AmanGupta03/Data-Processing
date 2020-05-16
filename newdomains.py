@@ -250,7 +250,7 @@ def fast_scrap_limited(urls, cur_date, workers=5, limit=100):
     temp = data_to_append(temp, cur_date)
     globaldata.add_new_records(temp) 
     start_idx += limit
-    pfase += 1
+    phase += 1
 
   return data
 
