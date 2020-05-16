@@ -90,7 +90,7 @@ def get_url_to_scrap(urls):
   return url_to_scrap
 
 
-def get_active_urls(urls, workers=50):
+def get_active_urls(urls, workers=5):
   """ i) remove all url that doesn't respond or inactive, 
       ii) Add valid protocol to active urls """
 
@@ -222,7 +222,7 @@ def data_to_append(data, cur_date):
   return df
 
 
-def fast_scrap(urls, workers=50):
+def fast_scrap(urls, workers=5):
   """ Avoid dynamic content scrapping as webdriver cannot handle multiprocessing """
 
   with ProcessPoolExecutor(max_workers=workers) as executor:
@@ -235,7 +235,7 @@ def fast_scrap(urls, workers=50):
   return results
 
 
-def fast_scrap_limited(urls, cur_date, workers=50, limit=500):
+def fast_scrap_limited(urls, cur_date, workers=5, limit=100):
   """ This will scrap only domaisn upto 'limit' in one go...use it to optimise ram uses """
 
   data = {'urls':[], 'embedding':[]}
