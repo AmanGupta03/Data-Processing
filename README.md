@@ -13,5 +13,14 @@ apt install chromium-chromedriver
 cp /usr/lib/chromium-browser/chromedriver /usr/bin
 ```
  
+## Download database
+```python
 
+!pip install gdown
+import gdown
 
+url = 'https://drive.google.com/uc?id=1-HCgfFSd4caN4YSjGQbnNdf37defFlEh'
+output = 'web_update.db'
+gdown.download(url, output, quiet=False)
+
+```
