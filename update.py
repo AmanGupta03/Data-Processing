@@ -40,30 +40,22 @@ new_active_urls = newdomains.get_active_urls(url_to_scrap) #slice list while tes
 print('\n',len(new_active_urls), 'new active domains found')
 
 print('\nScrapping urls...')
-data = newdomains.fast_scrap(new_active_urls) #approximately perform 5-10 it/s...
+data = newdomains.fast_scrap_limited(new_active_urls, cur_date) #approximately perform 5-10 it/s...
 print('\n',len(data), 'new domains scrapped')
 
 print('\nAdjusting ranks...')
-ranks = newdomains.get_adjusted_ranks(cur_date, data, urls)
-
-new_scrapped_url = [row['url'] for row in data] 
-embedding = [[float(x) for x in row['embedding'].split()] for row in data] #embeddings as list of list, ordered according to new_scrapped url
-
-#get pandas dataframe indexed on url to append on global_data
-data = newdomains.data_to_append(data, cur_date) 
-
+ranks = newdomains.get_adjusted_ranks(cur_date, data['urls'], urls)
 
 print('performing updates on global_data.....')
 
 deleted_records = globaldata.delete_records(cur_date, duration=30) 
-globaldata.add_new_records(data) 
 globaldata.update_rank(list(ranks.items()))
 globaldata.update_date(list(ranks.keys()), str(cur_date))
 
 print('updating trends.......')
-trends.update_trends(new_scrapped_url, embedding, str(cur_date))
+trends.update_trends(data['urls'], data['embedding'], str(cur_date))
 
 print('updating visited domains...')
-newdomains.update_visited_domains(list(ranks.keys()), new_scrapped_url, cur_date)
+newdomains.update_visited_domains(list(ranks.keys()), data['urls'], cur_date)
 
 print('SUCCESS')

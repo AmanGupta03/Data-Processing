@@ -6,7 +6,9 @@ from settings import DB_PATH
 from tqdm import tqdm
 import pandas as pd
 import numpy as np
+import globaldata
 import sqlite3
+
 
 MAX_LIMIT = 500000   #no of entries to consider from ranklist
 CISCO_RANKLIST = 'http://s3-us-west-1.amazonaws.com/umbrella-static/top-1m-{date:}.csv.zip'
@@ -102,13 +104,13 @@ def get_active_urls(urls, workers=5):
   return results
 
 
-def get_adjusted_ranks(cur_date, data, urls):
+def get_adjusted_ranks(cur_date, new_urls, urls):
   """ return current_day ranklist of all urls in data """
 
   all_fetched_urls = set(get_all_fetched_domains(cur_date))
 
-  for entry in data:
-    all_fetched_urls.add(entry['url'])
+  for url in new_urls:
+    all_fetched_urls.add(url)
   
   all_urls = process_ranklist(urls, entries=len(urls)) 
   
@@ -231,6 +233,26 @@ def fast_scrap(urls, workers=5):
         results.append(result.result())
 
   return results
+
+
+def fast_scrap_limited(urls, cur_date, workers=50, limit=500):
+  """ This will scrap only domaisn upto 'limit' in one go...use it to optimise ram uses """
+
+  data = {'urls':[], 'embedding':[]}
+  start_idx = 0
+  phase = 0
+  
+  while(start_idx < len(urls)):
+    temp = fast_scrap(urls[start_idx:start_idx+limit], workers=workers)
+    print('phase', str(phase), 'scrapping completed')
+    data['urls'].extend([row['url'] for row in temp])
+    data['embedding'].extend([[float(x) for x in row['embedding'].split()] for row in temp] )
+    temp = data_to_append(temp, cur_date)
+    globaldata.add_new_records(temp) 
+    start_idx += limit
+    pfase += 1
+
+  return data
 
 
 def complete_scrap(urls):
