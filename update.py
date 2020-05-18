@@ -43,7 +43,7 @@ print('\n',len(new_active_urls), 'new active domains found')
 
 print('\nScrapping urls...')
 data = newdomains.fast_scrap_limited(new_active_urls, cur_date, limit=1) #approximately perform 5-10 it/s...
-print('\n',len(data), 'new domains scrapped')
+print('\n',len(data['urls']), 'new domains scrapped')
 
 print('\nAdjusting ranks...')
 ranks = newdomains.get_adjusted_ranks(cur_date, data['urls'], urls)
