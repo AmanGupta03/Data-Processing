@@ -1,10 +1,11 @@
 from sklearn.neighbors import NearestNeighbors
 from globaldata import get_all_vectors, get_keyword_dict
 from collections import OrderedDict
-
+from tqdm import tqdm
 def get_all_keywords(centroids):
   final_dict={}
-  for i in range(100):
+  print("Finding all keywords ...")
+  for i in tqdm(range(100)):
     num_of_neigh=10
     common_dict={}
 
