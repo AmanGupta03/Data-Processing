@@ -243,14 +243,17 @@ def fast_scrap_limited(urls, cur_date, workers=3, limit=50):
   phase = 0
   
   while(start_idx < len(urls)):
-    temp = fast_scrap(urls[start_idx:start_idx+limit], workers=workers)
-    print('phase', str(phase), 'scrapping completed')
-    data['urls'].extend([row['url'] for row in temp])
-    data['embedding'].extend([[float(x) for x in row['embedding'].split()] for row in temp] )
-    temp = data_to_append(temp, cur_date)
-    globaldata.add_new_records(temp) 
-    start_idx += limit
-    phase += 1
+    try:
+      temp = fast_scrap(urls[start_idx:start_idx+limit], workers=workers)
+      print('phase', str(phase), 'scrapping completed')
+      data['urls'].extend([row['url'] for row in temp])
+      data['embedding'].extend([[float(x) for x in row['embedding'].split()] for row in temp] )
+      temp = data_to_append(temp, cur_date)
+      globaldata.add_new_records(temp) 
+      start_idx += limit
+      phase += 1
+    except:
+      continue
 
   return data
 
