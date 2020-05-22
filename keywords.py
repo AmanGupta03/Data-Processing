@@ -6,7 +6,7 @@ def get_all_keywords(centroids):
   final_dict={}
   print("Finding all keywords ...")
   for i in tqdm(range(100)):
-    num_of_neigh=10
+    num_of_neigh=50
     common_dict={}
 
     urlnvect=get_all_vectors(i)
