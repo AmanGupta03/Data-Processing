@@ -78,7 +78,7 @@ def getClusterDataList(strDate="2020-04-04",endDate="2020-04-09",cluster_no=1):
     return []
 
   #db fetching
-  conn = sqlite3.connect("database/web.db")
+  conn = sqlite3.connect("server/database/web.db")
   
   keywords=conn.execute("SELECT date_p,c"+str(cluster_no)+" from keywords where date_p between ? and ?",(strDate,endDate))
   ranks=conn.execute("SELECT c"+str(cluster_no)+" from rank where date_p between ? and ?",(strDate,endDate))
