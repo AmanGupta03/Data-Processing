@@ -63,3 +63,11 @@ def domain_search(q):
 @cross_origin()
 def get_info_route():
     return json.dumps(getInfo())
+
+@app.route('/getClusterData/<startDate>/<endDate>/<int:cluster_no>')
+@cross_origin()
+def getClusterData(startDate,endDate,cluster_no):
+  # return getClusterDataList(startDate,endDate,cluster_no)
+  return []
+
+
