@@ -7,6 +7,8 @@ import json
 import os
 import urllib.parse
 from server.get_cluster_info import getInfo
+from server.helper import getClusterDataList
+
 ASSETS_DIR = os.path.dirname(os.path.abspath(__file__))
 print("in app")
 
