@@ -27,7 +27,7 @@ cp /usr/lib/chromium-browser/chromedriver /usr/bin
 !pip install gdown
 import gdown
 
-url = 'https://drive.google.com/uc?id=1-HCgfFSd4caN4YSjGQbnNdf37defFlEh'
+url = 'https://drive.google.com/uc?id=1H5pK2HMBCnMRH6Xb9GcyEQxwwrLidnwR'
 output = 'web_update.db'
 gdown.download(url, output, quiet=False)
 

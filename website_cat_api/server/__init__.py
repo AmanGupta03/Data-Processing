@@ -7,6 +7,8 @@ import json
 import os
 import urllib.parse
 from server.get_cluster_info import getInfo
+from server.helper import getClusterDataList
+
 ASSETS_DIR = os.path.dirname(os.path.abspath(__file__))
 print("in app")
 
@@ -63,3 +65,11 @@ def domain_search(q):
 @cross_origin()
 def get_info_route():
     return json.dumps(getInfo())
+
+@app.route('/getClusterData/<startDate>/<endDate>/<int:cluster_no>')
+@cross_origin()
+def getClusterData(startDate,endDate,cluster_no):
+  # return getClusterDataList(startDate,endDate,cluster_no)
+  return []
+
+

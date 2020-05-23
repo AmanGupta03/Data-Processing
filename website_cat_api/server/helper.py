@@ -4,6 +4,10 @@
 import pickle
 import numpy as np
 import sqlite3
+from datetime import date
+from datetime import timedelta
+from datetime import datetime
+import json
 
 def read_cluster(filename=''):
   with open('sites_50_google.cluster', 'rb') as cluster_file:
@@ -64,3 +68,61 @@ def get_cluster_sites(cluster_no=-1):
         o['rank']=row[5]
         ret.append(o)
     return ret[:20]
+
+#if first dates not available then data will get from the date when first time data got available
+def getClusterDataList(strDate="2020-04-04",endDate="2020-04-09",cluster_no=1):
+  try:
+    #check if valid dates
+    if(strDate>endDate or endDate>str(date.today())):
+      print("Some error with dates format or requested data")
+      return []
+
+    #db fetching
+    conn = sqlite3.connect("server/database/web.db")
+
+    keywords=conn.execute("SELECT date_p,c"+str(cluster_no)+" from keywords where date_p between ? and ?",(strDate,endDate))
+    ranks=conn.execute("SELECT c"+str(cluster_no)+" from rank where date_p between ? and ?",(strDate,endDate))
+    sizes=conn.execute("SELECT c"+str(cluster_no)+" from size where date_p between ? and ?",(strDate,endDate))
+
+    keywords=keywords.fetchall()
+    ranks=ranks.fetchall()
+    sizes=sizes.fetchall()
+    n=(strToDate(endDate)-strToDate(strDate)).days+1
+    sizeOfdbData=len(keywords)
+    conn.close()
+
+    clusterDataList=[]
+
+    strDateObj=strToDate(strDate)
+    index=0
+
+    for i in range(n):
+
+      curDate=strDateObj+timedelta(days=i)
+
+      dataDict={}
+
+      if(index<sizeOfdbData and keywords[index][0]==str(curDate)):
+        dataDict['rank']=ranks[index][0]
+        dataDict['size']=sizes[index][0]
+        dataDict['keywords']=keywords[index][1]
+        dataDict['date']=keywords[index][0]
+        clusterDataList.append(dataDict)
+        index+=1
+      else:
+        if(len(clusterDataList)!=0):
+          dataDict['rank']=clusterDataList[-1]['rank']
+          dataDict['size']=clusterDataList[-1]['size']
+          dataDict['keywords']=clusterDataList[-1]['keywords']
+          dataDict['date']=str(str(curDate))
+          clusterDataList.append(dataDict)
+    return json.dumps(clusterDataList)
+  except Exception as e:
+    print("Errormsg from getClusterDataList ",e)
+    return []
+
+def strToDate(str):
+  return date(int(str[0:4]),int(str[5:7]),int(str[8:10]))
+
+
+  
