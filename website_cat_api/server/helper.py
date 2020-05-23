@@ -64,3 +64,31 @@ def get_cluster_sites(cluster_no=-1):
         o['rank']=row[5]
         ret.append(o)
     return ret[:20]
+
+def getClusterDataList(strDate="2020-04-04",endDate="2020-05-03",cluster_no=1):
+  clusterDataList=[]
+  curDate=date(int(strDate[0:4]),int(strDate[5:7]),int(strDate[8:10]))
+  # print(str(curDate+timedelta(days=1)))  
+  # print(datetime.now().time())
+  conn = sqlite3.connect("database/web.db")
+  keywords=conn.execute("SELECT c"+str(cluster_no)+",date_p from keywords where date_p between ? and ?",(strDate,endDate))
+  ranks=conn.execute("SELECT c"+str(cluster_no)+" from rank where date_p between ? and ?",(strDate,endDate))
+  sizes=conn.execute("SELECT c"+str(cluster_no)+" from size where date_p between ? and ?",(strDate,endDate))
+  keywords=keywords.fetchall()
+  ranks=ranks.fetchall()
+  sizes=sizes.fetchall()
+  n=len(keywords)
+  for i in range(n):
+    dataDict={"date":str(curDate+timedelta(days=i)))}
+    if(keywords[i][0]==dataDict["date"]):
+      dataDict['rank']=ranks[i][0]
+      dataDict['size']=sizes[i][0]
+      dataDict['keywords']=ranks[i][1]
+      clusterDataList.append(dataDict)
+    else:
+      if(len(clusterDataList)!=0):
+        dataDict['rank']=clusterDataList[-1]['rank']
+        dataDict['size']=clusterDataList[-1]['size']
+        dataDict['keywords']=clusterDataList[-1]['keywords']
+        clusterDataList.append(dataDict) 
+  
