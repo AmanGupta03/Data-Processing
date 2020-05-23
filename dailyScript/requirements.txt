@@ -1,0 +1,10 @@
+pandas
+gensim
+nltk
+bs4
+tldextract
+selenium
+numpy
+sklearn
+datetime 
+tqdm
