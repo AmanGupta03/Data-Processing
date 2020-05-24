@@ -8,6 +8,10 @@ import os
 import urllib.parse
 from server.get_cluster_info import getInfo
 from server.helper import getClusterDataList
+from datetime import date
+from datetime import timedelta
+
+
 
 ASSETS_DIR = os.path.dirname(os.path.abspath(__file__))
 print("in app")
@@ -72,4 +76,30 @@ def getClusterData(startDate,endDate,cluster_no):
   return json.dumps(getClusterDataList(startDate,endDate,cluster_no))
   #return []
 
+
+@app.route('/getOneDayClusterData/<endDate>/<int:cluster_no>')
+@cross_origin()
+def getOneDayClusterData(endDate,cluster_no):
+  try:
+    startDate=str(date(int(endDate[0:4]),int(endDate[5:7]),int(endDate[8:10]))-timedelta(days=1))
+    newDictList = getClusterDataList(startDate,endDate,cluster_no)
+    if(newDictList[0]['date']==str(endDate) or newDictList[-1]['date']==str(endDate)):
+      clusterData={}
+      clusterData['date']=endDate
+      clusterData["rank"]=int(newDictList[-1]['rank'])
+      clusterData["size"]=newDictList[-1]['size']
+      clusterData["keywords"]=newDictList[-1]["keywords"]
+      clusterData['rankChange']=clusterData["rank"]
+      clusterData['sizeChange']=clusterData["size"]
+      if(newDictList[0]['date']==str(startDate)):
+        clusterData["rankChange"]-=int(int(newDictList[0]['rank']))
+        clusterData["sizeChange"]-=int(newDictList[0]['size'])
+      return json.dumps(clusterData)
+    else:
+      return json.dumps([])
+  except Exception as e:
+    print("Error with one date Cluster Data api ",e)
+    return json.dumps([])
+   
+ 
 

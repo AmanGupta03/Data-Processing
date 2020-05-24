@@ -103,7 +103,7 @@ def getClusterDataList(strDate="2020-04-04",endDate="2020-04-09",cluster_no=1):
       dataDict={}
 
       if(index<sizeOfdbData and keywords[index][0]==str(curDate)):
-        dataDict['rank']=ranks[index][0]
+        dataDict['rank']=int(ranks[index][0]/sizes[index][0])
         dataDict['size']=sizes[index][0]
         dataDict['keywords']=keywords[index][1]
         dataDict['date']=keywords[index][0]
@@ -111,7 +111,7 @@ def getClusterDataList(strDate="2020-04-04",endDate="2020-04-09",cluster_no=1):
         index+=1
       else:
         if(len(clusterDataList)!=0):
-          dataDict['rank']=clusterDataList[-1]['rank']
+          dataDict['rank']=int(clusterDataList[-1]['rank']/clusterDataList[-1]['size'])
           dataDict['size']=clusterDataList[-1]['size']
           dataDict['keywords']=clusterDataList[-1]['keywords']
           dataDict['date']=str(str(curDate))

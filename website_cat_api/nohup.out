@@ -2651,3 +2651,16 @@ Traceback (most recent call last):
 UnicodeError: encoding with 'idna' codec failed (UnicodeError: label empty or too long)
 
 ERROR_MSG 'UnicodeError' object is not subscriptable209.17.97.26 - - [24/May/2020 03:29:03] "[37mGET / HTTP/1.0[0m" 200 -
+/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/sklearn/base.py:318: UserWarning: Trying to unpickle estimator MiniBatchKMeans from version 0.23.0 when using version 0.22.2.post1. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+kmeans loaded
+Traceback (most recent call last):
+  File "app.py", line 1, in <module>
+    from server import app
+  File "/home/ec2-user/Data-Processing/website_cat_api/server/__init__.py", line 5, in <module>
+    import server.initialize
+  File "/home/ec2-user/Data-Processing/website_cat_api/server/initialize.py", line 14, in <module>
+    modelg=load_obj("modelg50")
+  File "/home/ec2-user/Data-Processing/website_cat_api/server/initialize.py", line 5, in load_obj
+    obj = pickle.load(obj_file)
+KeyboardInterrupt
