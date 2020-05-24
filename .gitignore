@@ -3,3 +3,5 @@ env
 venv
 web.db
 *.pyc
+nohup.out
+*.out
