@@ -5,7 +5,7 @@ import sqlite3
 from server.initialize import kmeans,modelg,sent_vectorizer
 #from server.get_url import preprocess,get_content
 from scrapper import get_text_content
-from temp_keywords import getTempKeywords
+from temp_keywords import getTempKeywords,top_keywords
 import json
 import traceback
 #need to bring exact correct kmeans and wb.db accoringly and trends.db accordingly
@@ -191,7 +191,8 @@ def finalFunction(url,nearCond):
     indexOfNearWebsites = getIndexOfNearVectors(urlVector,vectors)
     print("Index pf websites")
     nearWebsites=getNearWebsites(urls,indexOfNearWebsites)
-    keywords = getTempKeywords(nearWebsites)
+    #keywords = getTempKeywords(nearWebsites)
+    keywords = top_keywords(nearWebsites)
     print("Temp",keywords)
     print("near Websites")
     #print(websiteList)
