@@ -2462,3 +2462,192 @@ near Websites
 [('https://wikipedia.org', 185.0, 190.0), ('https://admicro.vn', 205.0, 197.0), ('https://certum.pl', 258.0, 254.0), ('https://blogger.com', 364.0, 360.0), ('https://truehits.in.th', 831.0, 838.0), ('https://uzone.id', 1040.0, 992.0), ('https://accesstrade.co.id', 1504.0, 1429.0), ('https://kumparan.com', 1372.0, 1295.0), ('https://cnbcindonesia.com', 1391.0, 1339.0), ('https://kontan.co.id', 1736.0, 1661.0), ('https://upsieutoc.com', 1778.0, 1644.0), ('https://vccloud.vn', 1874.0, 1818.0), ('https://kapook.com', 1993.0, 1996.0), ('https://taimienphi.vn', 1987.0, 1916.0), ('https://gridoto.com', 2350.0, 2413.0), ('http://xinhuanet.com', 2164.0, 2255.0), ('https://phimsex1.net', 2377.0, 2129.0), ('https://jalantikus.com', 2473.0, 2433.0), ('https://ditvl.net', 2822.0, 2527.0), ('https://kaskus.co.id', 2430.0, 2415.0)]
 [('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
 [('https://jd.com', 355.0, 359.0), ('https://chase.com', 695.0, 698.0), ('https://wellsfargo.com', 686.0, 695.0), ('http://webull.com', 746.0, 738.0), ('https://usbank.com', 863.0, 869.0), ('https://schwab.com', 947.0, 942.0), ('https://tree.com', 820.0, 884.0), ('https://lendingtree.com', 869.0, 917.0), ('https://citibank.com', 1117.0, 1100.0), ('https://ally.com', 1131.0, 1106.0), ('http://ubs.com', 1084.0, 1079.0), ('https://scotiabank.com', 1176.0, 1156.0), ('https://cibc.com', 1177.0, 1169.0), ('https://axisbank.com', 1243.0, 1223.0), ('https://bmo.com', 1190.0, 1178.0), ('http://bbt.com', 1239.0, 1226.0), ('https://tiaa.org', 1235.0, 1216.0), ('https://fnb.co.za', 1257.0, 1246.0), ('https://ing.com', 1251.0, 1238.0), ('https://marketwatch.com', 1046.0, 1060.0)]122.168.83.185 - - [22/May/2020 20:08:23] "[37mGET /getclusterurl/61/ HTTP/1.1[0m" 200 -
+/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/sklearn/base.py:318: UserWarning: Trying to unpickle estimator MiniBatchKMeans from version 0.23.0 when using version 0.22.2.post1. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+unable to import 'smart_open.gcs', disabling that module
+kmeans loaded
+modelg50 loaded
+in app
+loading dictionary...
+loading words lemma...
+ * Serving Flask app "server" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+178.128.252.108 - - [23/May/2020 21:14:52] "[37mGET /getClusterData/2020-05-05/2020-05-08/5 HTTP/1.1[0m" 200 -
+178.128.252.108 - - [23/May/2020 21:14:55] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+27.57.203.105 - - [23/May/2020 21:15:57] "[37mGET / HTTP/1.1[0m" 200 -
+27.57.203.105 - - [23/May/2020 21:16:00] "[37mGET /favicon.ico HTTP/1.1[0m" 200 -
+27.57.203.105 - - [23/May/2020 21:16:07] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+27.57.203.105 - - [23/May/2020 21:16:16] "[37mGET /getclusterurl/96/ HTTP/1.1[0m" 200 -
+27.57.203.105 - - [23/May/2020 21:16:37] "[37mGET /hop.com/1 HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:48:50] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:48:53] "[37mGET /getclusterurl/91/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:53:05] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:53:48] "[32mGET /getclusterurl/40 HTTP/1.1[0m" 308 -
+favicon.ico
+check url info err msg local variable 'cluster_no' referenced before assignment
+url not in database
+check aman
+status fail
+
+check url info err msg local variable 'cluster_no' referenced before assignment
+url not in database
+giveUrlInfo error encoding with 'idna' codec failed (UnicodeError: label empty or too long)
+Traceback (most recent call last):
+  File "/usr/lib64/python3.7/encodings/idna.py", line 165, in encode
+    raise UnicodeError("label empty or too long")
+UnicodeError: label empty or too long
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/Data-Processing/website_cat_api/server/get_result.py", line 144, in giveUrlInfo
+    content_dict = get_text_content(url)
+  File "/home/ec2-user/Data-Processing/website_cat_api/scrapper.py", line 150, in get_text_content
+    data =  get_url_and_content(url, dynamic, timeout)
+  File "/home/ec2-user/Data-Processing/website_cat_api/scrapper.py", line 132, in get_url_and_content
+    content = get_scrapped_text('https://'+url, dynamic, timeout)
+  File "/home/ec2-user/Data-Processing/website_cat_api/scrapper.py", line 115, in get_scrapped_text
+    content = get_static_text_content(url, timeout)
+  File "/home/ec2-user/Data-Processing/website_cat_api/scrapper.py", line 72, in get_static_text_content
+    res = requests.get(url, headers=headers, verify=False, timeout=timeout, allow_redirects=True)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connectionpool.py", line 976, in _validate_conn
+    conn.connect()
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/util/connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib64/python3.7/socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+UnicodeError: encoding with 'idna' codec failed (UnicodeError: label empty or too long)
+
+ERROR_MSG 'UnicodeError' object is not subscriptable
+favicon.ico
+check url info err msg local variable 'cluster_no' referenced before assignment
+url not in database
+check aman
+status fail
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('https://adsrvr.org', 26.0, 26.0), ('https://alibaba.com', 101.0, 103.0), ('https://icloud-content.com', 134.0, 132.0), ('https://entrust.net', 148.0, 154.0), ('https://geotrust.com', 163.0, 165.0), ('https://dell.com', 267.0, 260.0), ('https://stripe.com', 265.0, 267.0), ('https://hubspot.com', 303.0, 309.0), ('https://luminatinet.com', 440.0, 430.0), ('https://tenjin.io', 693.0, 687.0), ('https://remarketingpixel.com', 684.0, 697.0), ('https://measuread.com', 713.0, 732.0), ('http://riskified.com', 758.0, 756.0), ('http://optad360.io', 739.0, 726.0), ('https://dashlane.com', 887.0, 891.0), ('https://usebutton.com', 936.0, 915.0), ('http://cscdns.net', 992.0, 1003.0), ('https://ncaudienceexchange.com', 951.0, 986.0), ('https://hotrk0.com', 1034.0, 1027.0), ('https://squareup.com', 1038.0, 1010.0)]
+hop.com
+check url info err msg local variable 'cluster_no' referenced before assignment
+url not in database
+check aman
+status success
+sent vectorizer function called
+cluster 63
+Url Info Done
+keywords []
+embedding of all urls from database done
+Finally all url vectors preapred (X)
+Vectors of respective cluster 
+Index pf websites
+Temp ['pour', 'france', 'masque', 'entreprises', 'rmc', 'bfm', 'dans', 'direct', 'transport', 'nombre']
+near Websites
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('https://twitter.com', 27.0, 28.0), ('https://walmart.com', 197.0, 203.0), ('https://joinhoney.com', 282.0, 278.0), ('http://att.net', 457.0, 451.0), ('https://brave.com', 841.0, 846.0), ('http://particlenews.com', 850.0, 859.0), ('https://trustpilot.com', 960.0, 963.0), ('https://olark.com', 953.0, 973.0), ('https://bravesoftware.com', 1099.0, 1102.0), ('https://babybus.com', 1316.0, 1289.0), ('https://omegle.com', 2782.0, 2316.0), ('https://pbs.org', 1740.0, 1771.0), ('https://honey.io', 1852.0, 1863.0), ('https://blocksite.co', 2075.0, 2107.0), ('https://gobankingrates.com', 2008.0, 1806.0), ('https://loox.io', 2351.0, 2373.0), ('https://proshred.com', None, None), ('https://pushowl.com', 2517.0, 2778.0), ('https://sephora.com', 2587.0, 2561.0), ('https://tvb.com', 2459.0, 2500.0)]
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('https://bing.com', 10.0, 10.0), ('https://msn.com', 19.0, 18.0), ('https://weather.com', 96.0, 96.0), ('https://aol.com', 292.0, 294.0), ('https://life360.com', 531.0, 527.0), ('http://bbci.co.uk', 533.0, 568.0), ('https://boxofficemojo.com', 538.0, 555.0), ('https://yelp.com', 734.0, 759.0), ('https://theguardian.com', 968.0, 1019.0), ('https://dailymail.co.uk', 868.0, 867.0), ('https://seattletimes.com', 1297.0, 1206.0), ('https://nypost.com', 1342.0, 1355.0), ('http://dtinews.vn', 1263.0, 1218.0), ('https://oregonlive.com', 1380.0, 1367.0), ('https://wunderground.com', 1613.0, 1576.0), ('https://darksky.net', 1686.0, 1704.0), ('https://latimes.com', 446.0, 391.0), ('https://newzit.com', 1619.0, 1677.0), ('https://timeanddate.com', 1632.0, 1630.0), ('https://topbuzz.com', 2041.0, 2047.0)]122.175.167.51 - - [23/May/2020 21:53:48] "[37mGET /getclusterurl/40/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:54:37] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:54:38] "[37mGET /getclusterurl/92/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:54:50] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:54:53] "[37mGET /getclusterurl/90/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:55:58] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:56:02] "[37mGET /getclusterurl/90/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:56:25] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:56:27] "[37mGET /getclusterurl/90/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:57:41] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:57:43] "[37mGET /getclusterurl/92/ HTTP/1.1[0m" 200 -
+
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('https://google.com', 1.0, 1.0), ('https://youtube.com', 7.0, 7.0), ('https://createjs.com', 151.0, 149.0), ('https://line.me', 181.0, 181.0), ('https://opera.com', 210.0, 200.0), ('https://crazyegg.com', 179.0, 189.0), ('https://imgur.com', 216.0, 211.0), ('https://polyfill.io', 222.0, 225.0), ('https://getpocket.com', 230.0, 235.0), ('https://imoim.app', 415.0, 413.0), ('http://opera-mini.net', 422.0, 405.0), ('https://audible.com', 380.0, 394.0), ('https://bitmoji.com', 444.0, 439.0), ('https://pandora.com', 397.0, 400.0), ('https://messenger.com', 433.0, 473.0), ('https://www.tumblr.com', 454.0, 448.0), ('https://amung.us', 485.0, 468.0), ('https://ok.ru', 472.0, 462.0), ('https://rarbg.com', 515.0, 524.0), ('https://wattpad.com', 557.0, 543.0)]
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('http://adscale.de', 562.0, 571.0), ('https://deutsche-bank.de', 1277.0, 1265.0), ('https://selfhost.eu', 1642.0, 1541.0), ('https://emetriq.de', 2427.0, 2406.0), ('https://exactag.com', 2670.0, 2793.0), ('https://web.de', 2450.0, 2768.0), ('http://adspirit.de', 3280.0, 1879.0), ('https://t-online.de', 3186.0, 4167.0), ('https://myoffrz.io', 4829.0, 5017.0), ('https://finanzen.net', 4399.0, 4426.0), ('https://hosteurope.de', 4976.0, 4973.0), ('https://freenet.de', 4130.0, 5436.0), ('https://automaten-hoffmann.de', 4790.0, 5592.0), ('https://otto.de', 5246.0, 5200.0), ('https://xplosion.de', 6602.0, 6835.0), ('https://ptb.de', 7475.0, 7719.0), ('http://schlemmerbox24.de', None, None), ('https://hostpoint.ch', 8424.0, 9396.0), ('https://webhoster.de', 12857.0, 18181.0), ('https://smart-dl.de', None, None)]
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('http://adscale.de', 562.0, 571.0), ('https://deutsche-bank.de', 1277.0, 1265.0), ('https://selfhost.eu', 1642.0, 1541.0), ('https://emetriq.de', 2427.0, 2406.0), ('https://exactag.com', 2670.0, 2793.0), ('https://web.de', 2450.0, 2768.0), ('http://adspirit.de', 3280.0, 1879.0), ('https://t-online.de', 3186.0, 4167.0), ('https://myoffrz.io', 4829.0, 5017.0), ('https://finanzen.net', 4399.0, 4426.0), ('https://hosteurope.de', 4976.0, 4973.0), ('https://freenet.de', 4130.0, 5436.0), ('https://automaten-hoffmann.de', 4790.0, 5592.0), ('https://otto.de', 5246.0, 5200.0), ('https://xplosion.de', 6602.0, 6835.0), ('https://ptb.de', 7475.0, 7719.0), ('http://schlemmerbox24.de', None, None), ('https://hostpoint.ch', 8424.0, 9396.0), ('https://webhoster.de', 12857.0, 18181.0), ('https://smart-dl.de', None, None)]
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('http://adscale.de', 562.0, 571.0), ('https://deutsche-bank.de', 1277.0, 1265.0), ('https://selfhost.eu', 1642.0, 1541.0), ('https://emetriq.de', 2427.0, 2406.0), ('https://exactag.com', 2670.0, 2793.0), ('https://web.de', 2450.0, 2768.0), ('http://adspirit.de', 3280.0, 1879.0), ('https://t-online.de', 3186.0, 4167.0), ('https://myoffrz.io', 4829.0, 5017.0), ('https://finanzen.net', 4399.0, 4426.0), ('https://hosteurope.de', 4976.0, 4973.0), ('https://freenet.de', 4130.0, 5436.0), ('https://automaten-hoffmann.de', 4790.0, 5592.0), ('https://otto.de', 5246.0, 5200.0), ('https://xplosion.de', 6602.0, 6835.0), ('https://ptb.de', 7475.0, 7719.0), ('http://schlemmerbox24.de', None, None), ('https://hostpoint.ch', 8424.0, 9396.0), ('https://webhoster.de', 12857.0, 18181.0), ('https://smart-dl.de', None, None)]
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('https://google.com', 1.0, 1.0), ('https://youtube.com', 7.0, 7.0), ('https://createjs.com', 151.0, 149.0), ('https://line.me', 181.0, 181.0), ('https://opera.com', 210.0, 200.0), ('https://crazyegg.com', 179.0, 189.0), ('https://imgur.com', 216.0, 211.0), ('https://polyfill.io', 222.0, 225.0), ('https://getpocket.com', 230.0, 235.0), ('https://imoim.app', 415.0, 413.0), ('http://opera-mini.net', 422.0, 405.0), ('https://audible.com', 380.0, 394.0), ('https://bitmoji.com', 444.0, 439.0), ('https://pandora.com', 397.0, 400.0), ('https://messenger.com', 433.0, 473.0), ('https://www.tumblr.com', 454.0, 448.0), ('https://amung.us', 485.0, 468.0), ('https://ok.ru', 472.0, 462.0), ('https://rarbg.com', 515.0, 524.0), ('https://wattpad.com', 557.0, 543.0)]
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]122.175.167.51 - - [23/May/2020 21:57:53] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:57:59] "[37mGET /getclusterurl/88/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:58:15] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:58:43] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:58:48] "[37mGET /getclusterurl/57/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:59:04] "[37mGET /getclusterurl/ HTTP/1.1[0m" 200 -
+122.175.167.51 - - [23/May/2020 21:59:07] "[37mGET /getclusterurl/88/ HTTP/1.1[0m" 200 -
+
+[('https://wikipedia.org', 185.0, 190.0), ('https://admicro.vn', 205.0, 197.0), ('https://certum.pl', 258.0, 254.0), ('https://blogger.com', 364.0, 360.0), ('https://truehits.in.th', 831.0, 838.0), ('https://uzone.id', 1040.0, 992.0), ('https://accesstrade.co.id', 1504.0, 1429.0), ('https://kumparan.com', 1372.0, 1295.0), ('https://cnbcindonesia.com', 1391.0, 1339.0), ('https://kontan.co.id', 1736.0, 1661.0), ('https://upsieutoc.com', 1778.0, 1644.0), ('https://vccloud.vn', 1874.0, 1818.0), ('https://kapook.com', 1993.0, 1996.0), ('https://taimienphi.vn', 1987.0, 1916.0), ('https://gridoto.com', 2350.0, 2413.0), ('http://xinhuanet.com', 2164.0, 2255.0), ('https://phimsex1.net', 2377.0, 2129.0), ('https://jalantikus.com', 2473.0, 2433.0), ('https://ditvl.net', 2822.0, 2527.0), ('https://kaskus.co.id', 2430.0, 2415.0)]
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('https://cloudflare.com', 30.0, 30.0), ('https://opendns.com', 49.0, 49.0), ('https://azure.com', 106.0, 105.0), ('https://teamviewer.com', 114.0, 113.0), ('https://helpshift.com', 160.0, 158.0), ('https://meraki.com', 206.0, 206.0), ('https://aliyun.com', 290.0, 277.0), ('https://nai.com', 425.0, 421.0), ('https://okta.com', 354.0, 362.0), ('https://adsmoloco.com', 474.0, 459.0), ('https://section.io', 455.0, 453.0), ('https://digitaloceanspaces.com', 467.0, 461.0), ('http://splunkcloud.com', 530.0, 539.0), ('https://bitdefender.com', 624.0, 631.0), ('https://ns1p.net', 605.0, 611.0), ('https://node4.co.uk', 678.0, 625.0), ('https://here.com', 768.0, 784.0), ('https://counterpath.com', 752.0, 688.0), ('https://zscaler.com', 720.0, 730.0), ('https://windowsazure.com', 697.0, 717.0)]
+[('https://google.com', 1.0, 1.0), ('https://microsoft.com', 2.0, 2.0), ('https://netflix.com', 3.0, 3.0), ('https://facebook.com', 4.0, 4.0), ('https://live.com', 5.0, 5.0), ('https://doubleclick.net', 6.0, 6.0), ('https://youtube.com', 7.0, 7.0), ('https://fbcdn.net', 9.0, 9.0), ('https://google-analytics.com', 8.0, 8.0), ('https://bing.com', 10.0, 10.0), ('https://apple.com', 12.0, 12.0), ('https://skype.com', 11.0, 11.0), ('https://office365.com', 13.0, 13.0), ('https://office.com', 14.0, 14.0), ('http://amazonaws.com', 15.0, 15.0), ('https://googlesyndication.com', 16.0, 16.0), ('https://digicert.com', 18.0, 19.0), ('https://windows.net', 17.0, 17.0), ('https://msn.com', 19.0, 18.0), ('https://yahoo.com', 20.0, 20.0)]
+[('https://wikipedia.org', 185.0, 190.0), ('https://admicro.vn', 205.0, 197.0), ('https://certum.pl', 258.0, 254.0), ('https://blogger.com', 364.0, 360.0), ('https://truehits.in.th', 831.0, 838.0), ('https://uzone.id', 1040.0, 992.0), ('https://accesstrade.co.id', 1504.0, 1429.0), ('https://kumparan.com', 1372.0, 1295.0), ('https://cnbcindonesia.com', 1391.0, 1339.0), ('https://kontan.co.id', 1736.0, 1661.0), ('https://upsieutoc.com', 1778.0, 1644.0), ('https://vccloud.vn', 1874.0, 1818.0), ('https://kapook.com', 1993.0, 1996.0), ('https://taimienphi.vn', 1987.0, 1916.0), ('https://gridoto.com', 2350.0, 2413.0), ('http://xinhuanet.com', 2164.0, 2255.0), ('https://phimsex1.net', 2377.0, 2129.0), ('https://jalantikus.com', 2473.0, 2433.0), ('https://ditvl.net', 2822.0, 2527.0), ('https://kaskus.co.id', 2430.0, 2415.0)]
+
+check url info err msg local variable 'cluster_no' referenced before assignment
+url not in database
+giveUrlInfo error encoding with 'idna' codec failed (UnicodeError: label empty or too long)
+Traceback (most recent call last):
+  File "/usr/lib64/python3.7/encodings/idna.py", line 165, in encode
+    raise UnicodeError("label empty or too long")
+UnicodeError: label empty or too long
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/Data-Processing/website_cat_api/server/get_result.py", line 144, in giveUrlInfo
+    content_dict = get_text_content(url)
+  File "/home/ec2-user/Data-Processing/website_cat_api/scrapper.py", line 150, in get_text_content
+    data =  get_url_and_content(url, dynamic, timeout)
+  File "/home/ec2-user/Data-Processing/website_cat_api/scrapper.py", line 132, in get_url_and_content
+    content = get_scrapped_text('https://'+url, dynamic, timeout)
+  File "/home/ec2-user/Data-Processing/website_cat_api/scrapper.py", line 115, in get_scrapped_text
+    content = get_static_text_content(url, timeout)
+  File "/home/ec2-user/Data-Processing/website_cat_api/scrapper.py", line 72, in get_static_text_content
+    res = requests.get(url, headers=headers, verify=False, timeout=timeout, allow_redirects=True)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connectionpool.py", line 976, in _validate_conn
+    conn.connect()
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/ec2-user/Data-Processing/website_cat_api/venv/lib64/python3.7/site-packages/urllib3/util/connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib64/python3.7/socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+UnicodeError: encoding with 'idna' codec failed (UnicodeError: label empty or too long)
+
+ERROR_MSG 'UnicodeError' object is not subscriptable209.17.97.26 - - [24/May/2020 03:29:03] "[37mGET / HTTP/1.0[0m" 200 -

@@ -116,7 +116,7 @@ def getClusterDataList(strDate="2020-04-04",endDate="2020-04-09",cluster_no=1):
           dataDict['keywords']=clusterDataList[-1]['keywords']
           dataDict['date']=str(str(curDate))
           clusterDataList.append(dataDict)
-    return json.dumps(clusterDataList)
+    return clusterDataList
   except Exception as e:
     print("Errormsg from getClusterDataList ",e)
     return []

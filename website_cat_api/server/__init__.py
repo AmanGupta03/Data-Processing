@@ -69,7 +69,7 @@ def get_info_route():
 @app.route('/getClusterData/<startDate>/<endDate>/<int:cluster_no>')
 @cross_origin()
 def getClusterData(startDate,endDate,cluster_no):
-  # return getClusterDataList(startDate,endDate,cluster_no)
-  return []
+  return json.dumps(getClusterDataList(startDate,endDate,cluster_no))
+  #return []
 
 
