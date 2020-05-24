@@ -94,7 +94,7 @@ def getOneDayClusterData(endDate,cluster_no):
       if(newDictList[0]['date']==str(startDate)):
         clusterData["rankChange"]-=int(int(newDictList[0]['rank']))
         clusterData["sizeChange"]-=int(newDictList[0]['size'])
-      return json.dumps(clusterData)
+      return json.dumps([clusterData])
     else:
       return json.dumps([])
   except Exception as e:
