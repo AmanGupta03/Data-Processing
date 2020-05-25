@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 import scipy
 from server.initialize import sent_vectorizer
 import sqlite3
+import math
 
 def get_all_vectors(cluster=None):
   """ return  dictionary consist list of urls, and embeddings of given cluster,
@@ -80,17 +81,35 @@ def search_by_domain(query_domain,no_of_results=50):
                 domains.append({"url":rows[i][0],"rank":rows[i][1]})
     return domains[0:no_of_results]
 
-def get_cluster_websites(cluster_no=-1):
+def get_pages(cluster_no=-1):
   conn = sqlite3.connect("./server/database/web.db")
   cur = conn.cursor()
+  limit=10
+  if cluster_no <0 or cluster_no >100:
+      cur.execute("SELECT COUNT(*) FROM global_data")
+  else :
+      cur.execute("SELECT COUNT(*) FROM global_data where cluster=?",(str(cluster_no),))
+  rows=cur.fetchone()
+  max_pages=math.ceil(rows[0]/limit)
+  return max_pages
+  
+def get_cluster_websites(page=0,cluster_no=-1):
+  conn = sqlite3.connect("./server/database/web.db")
+  cur = conn.cursor()
+  max_pages=get_pages(cluster_no)
+  if page>max_pages:
+    return 'invalid request'
+  offset=page*10
+  limit=10
   ret=[]
+  ret_obj={}
   rows=[]
   if cluster_no <0 or cluster_no >100:
-      cur.execute("SELECT url,rank_d1,rank_d2 FROM global_data")
+      cur.execute("SELECT url,rank_d1,rank_d2 FROM global_data  LIMIT ?,?",(str(offset),str(limit)))
   else :
-    cur.execute("SELECT url,rank_d1,rank_d2 FROM global_data where cluster=?",(str(cluster_no),))
-  rows = cur.fetchmany(20)
-  print (rows)
+    cur.execute("SELECT url,rank_d1,rank_d2 FROM global_data where cluster=?  LIMIT ?,?",(str(cluster_no),str(offset),str(limit)))
+  rows = cur.fetchall()
+  # print (rows)
   for row in rows:
       result_dict={}
       result_dict['url']=row[0]
@@ -100,4 +119,6 @@ def get_cluster_websites(cluster_no=-1):
       else:
           result_dict['change']=row[2]-row[1]
       ret.append(result_dict)
-  return ret
+      ret_obj['sites']=ret
+      ret_obj['max_page']=max_pages
+  return ret_obj
