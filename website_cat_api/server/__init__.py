@@ -42,14 +42,14 @@ def result_url1(status,url=''):
     print(url)
     return finalFunction(url,status)
 
-@app.route('/getclusterurl/<int:cluster_no>/')
-@app.route('/getclusterurl/')
+@app.route('/getclusterurl/page/<int:page_no>')
+@app.route('/getclusterurl/<int:cluster_no>/page/<int:page_no>')
 @cross_origin()
-def get_cluster_url(cluster_no=-1,page_no=1):
+def get_cluster_url(cluster_no=-1,page_no=0):
     if cluster_no <0 or cluster_no >100:
-        return json.dumps(get_cluster_websites())
+        return json.dumps(get_cluster_websites(page_no,cluster_no))
     else:
-        return json.dumps(get_cluster_websites(cluster_no))
+        return json.dumps(get_cluster_websites(page_no,cluster_no))
 
 @app.route('/search/query/<q>/clusterno/<int:cluster_no>')
 @app.route('/search/query/<q>')
@@ -94,7 +94,7 @@ def getOneDayClusterData(endDate,cluster_no):
       if(newDictList[0]['date']==str(startDate)):
         clusterData["rankChange"]-=int(int(newDictList[0]['rank']))
         clusterData["sizeChange"]-=int(newDictList[0]['size'])
-      return json.dumps(clusterData)
+      return json.dumps([clusterData])
     else:
       return json.dumps([])
   except Exception as e:

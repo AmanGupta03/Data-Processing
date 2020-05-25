@@ -1,4 +1,6 @@
 import sqlite3
+from collections import Counter
+
 def get_keyword_dict(url):
     """ return dictionary of keywords of url """
     try:
@@ -37,3 +39,14 @@ def getTempKeywords(urls):
     tocommondict(word_dict,common_dict)  
   final_dict=final_words(common_dict)
   return final_dict.split()
+
+def top_keywords(urls, count=10):
+  """ return top *count* keywords from list of urls 
+      Note-: method is not optimised, to use only for small_list i.e upto size 100 """
+  try:
+    res = Counter()
+    for url in urls:
+      res += Counter(get_keyword_dict(url))
+    return [w[0] for w in res.most_common(count)]
+  except:
+    print('Error finding top keywords')   
